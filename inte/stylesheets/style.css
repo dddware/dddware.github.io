@@ -6,7 +6,7 @@
 
 body {
 	background: #f2f2f2;
-	font-family:'consolas' ,"lucida grande", "verdana", "arial", sans-serif;
+	font-family:'consolas' , 'deja vu sans mono',"lucida grande", "verdana", "arial", sans-serif;
 }
 
 .main {
@@ -16,6 +16,7 @@ body {
 
 h1, h3 {
 	color: #EB581A;		
+	font-weight: normal
 }
 
 .our-projects {
@@ -36,6 +37,7 @@ h1, h3 {
 
 .our-projects > article  h3 {	
 	position: absolute;
+	margin: 0;
 	background: rgba(255, 255, 255, 0.8);
 	padding: 0.2em 0.5em;
 	font-size: 1.8em;
@@ -46,12 +48,61 @@ h1, h3 {
 	display: block;
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	border: 0.5em solid rgba(0, 0, 0, 0);
+	top: 0;
+	border: 0.3em solid rgba(0, 0, 0, 0);
 	border-right-color: #EB581A;
-	border-bottom: 0;
+	border-top: 0;
 }
 
+.our-projects > article  p {	
+	height: 12em;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 0;
+	transition: all 0.2s;
+}
+.our-projects > article  p:after {	
+	content: '';
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 2em;
+	background: linear-gradient(transparent, #fff);
+	-webkit-transition: all 0.2s;
+}
+
+.download-link {
+	background: #fff;
+	float: left;
+	border: 1px solid #EB581A;
+	color: #EB581A;
+	padding: 0.3em 0.5em;
+	border-radius: 3px;
+}
+
+.technologies {
+	padding: 0;
+	margin: 0;
+	margin-top: 0.75em;
+	margin-left: 6em;
+	text-align: right;
+}
+
+.technologies li{	
+	display: inline-block;
+	font-size: 0.8em;
+	padding: 0.1em 0.3em 0.2em;
+	background: #EB581A;
+	border-radius: 3px;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.picture {
+	margin-bottom: 0.5em;
+	transition: all 0.2s;
+}
 .picture img {
 	width: 100%;
 }
