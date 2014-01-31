@@ -1,0 +1,14 @@
+{
+  "name": "dddware.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dddware/dddware.github.io.git"
+  },
+  "author": "dddware",
+  "homepage": "http://dddware.github.io",
+  "devDependencies": {
+    "markdown-extra": "~0.1.0",
+    "gulp": "~3.5.0",
+    "gulp-load-tasks": "~0.1.1"
+  }
+}
