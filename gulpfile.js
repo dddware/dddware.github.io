@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     tasks = require('gulp-load-tasks')(),
+    Promise = require('promise'),
     rp = require('request-promise');
 
 
@@ -49,24 +50,26 @@ var cfg = {
 
 
 
-gulp.task('lol', function () {
-    getLanguages('alien.less').then(function (data) {
-        console.dir(data);
-    });
-});
-
 gulp.task('default', function () {
     var locals = {};
 
-    getRepos().then(function (data) {
-        locals.repos = data;
+    getRepos().then(function (repos) {
+        var promises = [];
 
-        console.log(locals.repos[0]);
+        for (var i in repos) {
+            promises.push(getLanguages(repos[i].name).then(function (languages) {
+                repos[i].languages = languages;
+            }));
+        }
 
-        gulp.src('./assets/layout/index.jade')
-            .pipe(tasks.jade({
-                locals: locals
-            }))
-            .pipe(gulp.dest('./'))
+        Promise.all(promises).then(function () {
+            locals.repos = repos;
+
+            gulp.src('./assets/layout/index.jade')
+                .pipe(tasks.jade({
+                    locals: locals
+                }))
+                .pipe(gulp.dest('./'))
+        });
     });
 })
