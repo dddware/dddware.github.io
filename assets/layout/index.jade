@@ -1,0 +1,26 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title dddware
+    link(rel='stylesheet', href='assets/stylesheets/style.css')
+
+  body
+    .main
+      header
+        h1 dddware
+      section.our-projects
+        h2 Our projects
+        - each repo in repos
+          article
+            .preview
+              h3= repo.name
+              .picture
+                img(src='nawak', alt='')
+            ul.technologies
+              - each percentage, language in repo.languages
+                li(class='#{language}', style='width: #{percentage}%')
+            a.download-link(href='#{repo.html_url}') Repository
+            div.content= repo.description
+// /body
+script(src='assets/scripts/script.js')
