@@ -1,37 +1,28 @@
 doctype
 html(lang='en')
-head
-    meta(charset='UTF-8')
-    title dddWareS
-    link(rel='stylesheet', href='assets/stylesheets/style.css')
+	head
+	    meta(charset='UTF-8')
+	    title dddWareS
+	    link(rel='stylesheet', href='assets/stylesheets/style.css')
 
-body
-  .main
-    header
-      h1 dddWare
-    section.our-projects
-      h2 Our projects
-      article
-        h3 Gimmefile
-        .picture
-          img(src='http://placekitten.com/400/120?image=1', alt='')
-        a.download-link(href='#') Download
-        ul.technologies
-          li node.js
-          li gulp.js
-          li stylus
-        p
-          | And I'll scream with a thousand voices... And I'll scream with a thousand voices... Go tell all your friends that this is the end. Go tell all your friends that this is the end. We ain't takin' orders from snakes no more. Walk the plank! Walk the plank! There's something in the air tonight. ...there's another case study for anthropology. My soul felt so safe up here, no self-centered natives destroying our Earth.
-      article
-        h3 dPaste
-        .picture
-          img(src='http://placekitten.com/400/120?image=2', alt='')
-        a.download-link(href='#') Download
-        ul.technologies
-          li node.js
-          li gulp.js
-          li stylus
-        p
-          | What are the clouds running from? I just fell from the mothership, they said that your answers are always lying on the ocean bed. I just fell from the mothership, they said that your answers are always lying on the ocean bed. Ingrowing egos, a syntax he knows. I am sane! ...there's another case study for anthropology. Go tell all your friends that this is the end. What are the clouds running from? I just fell from the mothership, they said that your answers are always lying on the ocean bed. There's something in the air tonight.
+	body
+	  .main
+	    header
+	      h1 dddWare
+	    section.our-projects
+	      h2 Our projects
+
+	      - for (var i = 0; i < data.length; ++i) {
+		      article
+		        h3= data.title
+		        .picture
+		          img(src='#{data.picture}', alt='')
+		        a.download-link(href='#{data.url}') Download
+		        ul.technologies		        	
+		        	- for (i = 0; i < data.meta.length; ++i) {
+		          	li= data.meta[i]
+		          - }
+		        p= data.content
+		     - }
 // /body
 script(src='assets/scripts/script.js')
