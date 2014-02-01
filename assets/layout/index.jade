@@ -17,10 +17,10 @@ html(lang='en')
               h3= repo.name
               .picture
                 img(src='nawak', alt='')
-              a.download-link(href='#{repo.html_url}') Repository
             ul.technologies
               - each percentage, language in repo.languages
                 li(class='#{language}', style='width: #{percentage}%')
+            a.download-link(href='#{repo.html_url}') Repository
             div.content= repo.description
 // /body
 script(src='assets/scripts/script.js')
