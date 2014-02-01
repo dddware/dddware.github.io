@@ -29,6 +29,7 @@ h1, h3 {
 	vertical-align: top;
 	width: 30%;
 	margin-right: 2%;
+	margin-bottom: 2%;
 	padding: 1em;
 	background: #fff;
 	text-align: left;
@@ -55,14 +56,15 @@ h1, h3 {
 	border-top: 0;
 }
 
-.our-projects > article  p {	
-	height: 12em;
+.our-projects > article  .content {
+	clear: both;	
+	max-height: 12em;
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 0;
 	transition: all 0.2s;
 }
-.our-projects > article  p:after {	
+.our-projects > article  .content:after {	
 	content: '';
 	display: block;
 	position: absolute;
