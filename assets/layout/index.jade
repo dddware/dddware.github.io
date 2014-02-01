@@ -1,28 +1,27 @@
 doctype
 html(lang='en')
-	head
-	    meta(charset='UTF-8')
-	    title dddWareS
-	    link(rel='stylesheet', href='assets/stylesheets/style.css')
+  head
+    meta(charset='UTF-8')
+    title dddWareS
+    link(rel='stylesheet', href='assets/stylesheets/style.css')
 
-	body
-	  .main
-	    header
-	      h1 dddWare
-	    section.our-projects
-	      h2 Our projects
+  body
+    .main
+      header
+        h1 dddWare
+      section.our-projects
+        h2 Our projects
 
-	      - for (var i = 0; i < data.length; ++i) {
-		      article
-		        h3= data.title
-		        .picture
-		          img(src='#{data.picture}', alt='')
-		        a.download-link(href='#{data.url}') Download
-		        ul.technologies		        	
-		        	- for (i = 0; i < data.meta.length; ++i) {
-		          	li= data.meta[i]
-		          - }
-		        p= data.content
-		     - }
+        - each project in projects
+          article
+            h3= project.name
+            .picture
+              img(src='#{project.picture}', alt='')
+            a.download-link(href='#{project.repo}') Download
+            ul.technologies
+              - for (i = 0; i < project.technos.length; ++i) {
+                li= project.technos[i]
+              - }
+            div!= project.content
 // /body
 script(src='assets/scripts/script.js')
