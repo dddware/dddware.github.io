@@ -65,7 +65,7 @@ h1, h3 {
   transition: all 0.2s;
 }
 .our-projects > article  .content:after { 
-  content: '';
+  /*content: '';*/
   display: block;
   position: absolute;
   right: 0;
@@ -77,12 +77,21 @@ h1, h3 {
 }
 
 .download-link {
+  display: inline-block;
   background: #fff;
-  float: left;
   border: 1px solid #EB581A;
   color: #EB581A;
   padding: 0.3em 0.5em;
+  margin-bottom: 10px;
   border-radius: 3px;
+}
+.download-link:hover {
+  background: #EB581A;
+  color: #fff;
+  text-decoration: none;
+}
+.download-link:active, .download-link:focus {
+
 }
 
 .technologies {
@@ -90,22 +99,23 @@ h1, h3 {
   height: 10px;
   padding: 0;
   margin: 0;
-  margin-top: 0;
+  margin-bottom: 10px;
   text-align: right;
-  border-radius: 3px;
   overflow: hidden;
+  background: #555;
 }
 
 .technologies li{ 
   display: inline-block;
   vertical-align: top;
-  font-size: 0.8em;
+  height: 100%;
+  font-size: 0.8;
   margin: 0;
   background: #EB581A;
+  color: #EB581A;
 }
 
 .picture {
-  margin-bottom: 0.5em;
   transition: all 0.2s;
   max-height: 200px;
   overflow: hidden;

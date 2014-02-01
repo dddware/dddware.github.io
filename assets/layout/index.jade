@@ -16,9 +16,10 @@ html(lang='en')
             h3= repo.name
             .picture
               img(src='nawak', alt='')
-            a.download-link(href='#{repo.html_url}') Repository
             ul.technologies
               li= repo.language
+            a.download-link(href='#{repo.html_url}') Repository
             div.content= repo.description
 // /body
 script(src='assets/scripts/script.js')
+  
