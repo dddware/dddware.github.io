@@ -95,6 +95,7 @@ h1, h3 {
 	display: inline-block;
 	font-size: 0.8em;
 	padding: 0.1em 0.3em 0.2em;
+	margin-left: 0.5em;
 	background: #EB581A;
 	border-radius: 3px;
 	color: rgba(255, 255, 255, 0.9);
@@ -103,6 +104,8 @@ h1, h3 {
 .picture {
 	margin-bottom: 0.5em;
 	transition: all 0.2s;
+	max-height: 200px;
+	overflow: hidden;
 }
 .picture img {
 	width: 100%;
