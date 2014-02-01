@@ -1,4 +1,4 @@
-# dddware.github.io
+# [dddware.github.io](http://dddware.github.io)
 
 ## Install
 
@@ -25,4 +25,6 @@ gulp
 
 ## Publish
 
-Simply `git push` your changes !
+```
+git push
+```
