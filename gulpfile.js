@@ -38,3 +38,13 @@ gulp.task('test', function () {
         });
     });
 });
+
+gulp.task('default', function() {
+    var locals = {};
+
+    gulp.src('./assets/layout/index.jade')
+        .pipe(tasks.jade({
+            locals: locals
+        }))
+        .pipe(gulp.dest('./'))
+})

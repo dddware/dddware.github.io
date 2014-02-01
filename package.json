@@ -9,6 +9,7 @@
   "devDependencies": {
     "markdown-extra": "~0.1.0",
     "gulp": "~3.5.0",
-    "gulp-load-tasks": "~0.1.1"
+    "gulp-load-tasks": "~0.1.1",
+    "gulp-jade": "~0.4.0"
   }
 }
