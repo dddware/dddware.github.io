@@ -2,26 +2,23 @@ doctype
 html(lang='en')
   head
     meta(charset='UTF-8')
-    title dddWareS
+    title dddware
     link(rel='stylesheet', href='assets/stylesheets/style.css')
 
   body
     .main
       header
-        h1 dddWare
+        h1 dddware
       section.our-projects
         h2 Our projects
-
-        - each project in projects
+        - each repo in repos
           article
-            h3= project.name
+            h3= repo.name
             .picture
-              img(src='#{project.picture}', alt='')
-            a.download-link(href='#{project.repo}') Download
+              img(src='nawak', alt='')
+            a.download-link(href='#{repo.html_url}') Repository
             ul.technologies
-              - for (i = 0; i < project.technos.length; ++i) {
-                li= project.technos[i]
-              - }
-            div.content!= project.content
+              li= repo.language
+            div.content= repo.description
 // /body
 script(src='assets/scripts/script.js')

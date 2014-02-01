@@ -1,66 +1,72 @@
 var gulp = require('gulp'),
     tasks = require('gulp-load-tasks')(),
-    fs = require('fs'),
-    md = require('markdown'),
-    mde = require('markdown-extra');
+    rp = require('request-promise');
 
 
 
-var parseOnProjects = function (callback) {
-    fs.readdir('projects', function (err, files) {
-        var projects = [],
-            nb = files.length;
+// GitHub API endpoints
 
-        [].forEach.call(files, function (file, i) {
-            fs.readFile('projects/' + file, { encoding: 'utf8' }, function (err, markdown) {
-                if (! err) {
-                    var project = {
-                            content: md.parse(mde.content(markdown))
-                        },
+var cfg = {
+        baseUrl: 'https://api.github.com',
+        org: 'dddware'
+    },
 
-                        metadata = mde.metadata(markdown, function (data) {
-                            var split = data.split("\n"),
-                                i;
-
-                            data = {};
-
-                            for (i in split) {
-                                var line = split[i].split(': ');
-                                data[line[0]] = eval(line[1]);
-                            }
-
-                            return data;
-                        });
-
-                    for (var key in metadata) {
-                        if (metadata.hasOwnProperty(key)) {
-                            project[key] = metadata[key];
-                        }
-                    }
-
-                    projects.push(project);
-
-                    if (i == nb - 1) {
-                        callback(projects);
-                    }
-                }
-            });
+    makeGetRequest = function (uri) {
+        return rp({
+            uri: cfg.baseUrl + uri,
+            headers: {
+                'User-Agent': 'gulp'
+            }
         });
+    },
+
+    getRepos = function () {
+        return makeGetRequest('/orgs/' + cfg.org + '/repos')
+            .then(function (data) {
+                return JSON.parse(data);
+            });
+    },
+
+    getLanguages = function (repo) {
+        return makeGetRequest('/repos/' + cfg.org + '/' + repo + '/languages')
+            .then(function (data) {
+                data = JSON.parse(data);
+                var total = 0;
+
+                // Add up code bytes per language to get total size
+                for (var i in data) {
+                    total += data[i];
+                }
+
+                // Turn numbers to percentages
+                for (var i in data) {
+                    data[i] = data[i] / total * 100;
+                }
+
+                return data;
+            });
+    }
+
+
+
+gulp.task('lol', function () {
+    getLanguages('alien.less').then(function (data) {
+        console.dir(data);
     });
-};
+});
 
-
-
-gulp.task('default', function() {
+gulp.task('default', function () {
     var locals = {};
 
-    parseOnProjects(function (projects) {
-        locals.projects = projects;
-    });
+    getRepos().then(function (data) {
+        locals.repos = data;
 
-    gulp.src('./assets/layout/index.jade')
-        .pipe(tasks.jade({
-            locals: locals
-        }))
-        .pipe(gulp.dest('./'))
+        console.log(locals.repos[0]);
+
+        gulp.src('./assets/layout/index.jade')
+            .pipe(tasks.jade({
+                locals: locals
+            }))
+            .pipe(gulp.dest('./'))
+    });
 })
