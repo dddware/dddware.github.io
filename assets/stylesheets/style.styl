@@ -1,21 +1,28 @@
 @charset 'utf-8';
+
 * {
   box-sizing: border-box;
 }
+
 body {
   background: #f2f2f2;
-  background: radial-gradient(#f2f2f2, #eee);
-  font-family: 'consolas', 'deja vu sans mono', "lucida grande", "verdana", "arial", sans-serif;
+  background: radial-gradient(#F2F2F2,#EEE);
+  font-family:'consolas' , 'deja vu sans mono',"lucida grande", "verdana", "arial", sans-serif;
 }
+
 .main {
   max-width: 1200px;
   margin: 0 auto;
 }
-h1,
-h3 {
-  color: #eb581a;
-  font-weight: normal;
+
+h1, h3 {
+  color: #EB581A;   
+  font-weight: normal
 }
+
+.our-projects {
+}
+
 .our-projects > article {
   display: inline-block;
   position: relative;
@@ -26,36 +33,39 @@ h3 {
   padding: 1em;
   background: #fff;
   text-align: left;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
 }
-.our-projects > article h3 {
+
+.our-projects > article  h3 { 
   position: absolute;
   margin: 0;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 0.2em 0.5em;
   font-size: 1.8em;
 }
-.our-projects > article h3:before {
+
+.our-projects > article  h3:before {
   content: '';
   display: block;
   position: absolute;
   right: 0;
   top: 0;
-  border: 0.3em solid rgba(0,0,0,0);
-  border-right-color: #eb581a;
+  border: 0.3em solid rgba(0, 0, 0, 0);
+  border-right-color: #EB581A;
   border-top: 0;
 }
-.our-projects > article .content {
-  clear: both;
+
+.our-projects > article  .content {
+  clear: both;  
   max-height: 12em;
   overflow: hidden;
   position: relative;
   margin-bottom: 0;
   transition: all 0.2s;
 }
-.our-projects > article .content:after {
-/*content: '';*/
+.our-projects > article  .content:after { 
+  /*content: '';*/
   display: block;
   position: absolute;
   right: 0;
@@ -65,20 +75,25 @@ h3 {
   background: linear-gradient(transparent, #fff);
   -webkit-transition: all 0.2s;
 }
+
 .download-link {
   display: inline-block;
   background: #fff;
-  border: 1px solid #eb581a;
-  color: #eb581a;
+  border: 1px solid #EB581A;
+  color: #EB581A;
   padding: 0.3em 0.5em;
   margin-bottom: 10px;
   border-radius: 3px;
 }
 .download-link:hover {
-  background: #eb581a;
+  background: #EB581A;
   color: #fff;
   text-decoration: none;
 }
+.download-link:active, .download-link:focus {
+
+}
+
 .technologies {
   clear: both;
   height: 10px;
@@ -89,19 +104,23 @@ h3 {
   overflow: hidden;
   background: #555;
 }
-.technologies li {
+
+javascript = #F15501
+css = #1F085E
+
+.technologies li
   display: inline-block;
   vertical-align: top;
   height: 100%;
   font-size: 0.8;
   margin: 0;
-}
-.technologies li.javascript {
-  background-color: #f15501;
-}
-.technologies li.css {
-  background-color: #1f085e;
-}
+
+  &.javascript
+    background-color javascript
+
+  &.css
+    background-color css
+
 .picture {
   transition: all 0.2s;
   max-height: 200px;

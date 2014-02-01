@@ -17,59 +17,80 @@ var cfg = {
             uri: cfg.baseUrl + uri,
             headers: {
                 'User-Agent': 'gulp'
+            },
+            auth: { // TODO: remove this once we're good to go (60 requests/hour will be quite enough for an occasional build)
+                user: 'neemzy',
+                pass: 'L375payforit'
             }
         });
     },
 
     getRepos = function () {
         return makeGetRequest('/orgs/' + cfg.org + '/repos')
-            .then(function (data) {
-                return JSON.parse(data);
-            });
-    },
+            .then(function (repos) {
+                repos = JSON.parse(repos);
+                var promises = [];
 
-    getLanguages = function (repo) {
-        return makeGetRequest('/repos/' + cfg.org + '/' + repo + '/languages')
-            .then(function (data) {
-                data = JSON.parse(data);
-                var total = 0;
+                // Make requests to get current repo's language list
+                for (var i in repos) {
+                    promises.push(
+                        Promise.from(
+                            makeGetRequest('/repos/' + cfg.org + '/' + repos[i].name + '/languages')
+                                .then(function (data) {
+                                    data = JSON.parse(data);
 
-                // Add up code bytes per language to get total size
-                for (var i in data) {
-                    total += data[i];
+                                    var languages = {},
+                                        total = 0;
+
+                                    // Add up bytes to get total codebase size
+                                    for (var language in data) {
+                                        total += data[language];
+                                    }
+
+                                    // Turn numbers into percentages
+                                    for (var language in data) {
+                                        languages[language.toLowerCase()] = data[language] / total * 100;
+                                    }
+
+                                    return languages;
+                                })
+                        )
+                    );
                 }
 
-                // Turn numbers to percentages
-                for (var i in data) {
-                    data[i] = data[i] / total * 100;
-                }
+                // Return global promise of above requests resolution
+                return Promise.all(promises).then(function (languages) {
+                    for (var i in repos) {
+                        repos[i].languages = languages[i];
+                    }
 
-                return data;
+                    return repos;
+                });
             });
-    }
+    };
 
 
 
-gulp.task('default', function () {
+gulp.task('projects', function () {
     var locals = {};
 
     getRepos().then(function (repos) {
-        var promises = [];
+        locals.repos = repos;
 
-        for (var i in repos) {
-            promises.push(getLanguages(repos[i].name).then(function (languages) {
-                repos[i].languages = languages;
-            }));
-        }
-
-        Promise.all(promises).then(function () {
-            locals.repos = repos;
-
-            gulp.src('./assets/layout/index.jade')
-                .pipe(tasks.jade({
-                    locals: locals
-                }))
-                .pipe(gulp.dest('./'))
-        });
+        gulp.src('./assets/layout/index.jade')
+            .pipe(tasks.jade({
+                locals: locals
+            }))
+            .pipe(gulp.dest('./'))
     });
-})
+});
+
+gulp.task('styles', function () {
+    gulp.src('./assets/stylesheets/style.styl')
+        .pipe(tasks.stylus())
+        .pipe(gulp.dest('./assets/stylesheets'));
+});
+
+gulp.task('default', function () {
+    gulp.run('projects', 'styles');
+});
