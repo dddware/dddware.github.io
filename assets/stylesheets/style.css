@@ -77,7 +77,8 @@ h3 {
   background: #fff;
   border: 1px solid #eb581a;
   color: #eb581a;
-  font-size: 0.9em;
+  text-decoration: none;
+  font-size: 0.8em;
   padding: 0.3em 0.5em;
   margin-bottom: 10px;
   border-radius: 3px;
@@ -105,7 +106,6 @@ h3 {
   display: inline-block;
   vertical-align: top;
   height: 100%;
-  font-size: 0.8;
   margin: 0;
 }
 .technologies li.javascript {
