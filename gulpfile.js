@@ -1,9 +1,8 @@
 var gulp = require('gulp'),
     tasks = require('gulp-load-tasks')(),
     Promise = require('promise'),
-    rp = require('request-promise');
-
-
+    rp = require('request-promise'),
+    auth = require('./lib/auth');
 
 // GitHub API endpoints
 
@@ -18,10 +17,7 @@ var cfg = {
             headers: {
                 'User-Agent': 'gulp'
             },
-            auth: { // TODO: remove this once we're good to go (60 requests/hour will be quite enough for an occasional build)
-                user: 'neemzy',
-                pass: 'L375payforit'
-            }
+            auth: auth
         });
     },
 
