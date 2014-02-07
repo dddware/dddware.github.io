@@ -17,6 +17,8 @@ module.exports = {
 }
 ```
 
+You will then be able to perform more than 60 requests per hour !
+
 ## Build
 
 ```
