@@ -27,6 +27,13 @@ var cfg = {
         });
     },
 
+    getMembers = function () {
+        return getRequest('/orgs/' + cfg.org + '/members')
+            .then(function (members) {
+                return JSON.parse(members);
+            });
+    },
+
     getRepos = function () {
         return getRequest('/orgs/' + cfg.org + '/repos')
             .then(function (repos) {
@@ -74,11 +81,13 @@ var cfg = {
 
 
 gulp.task('github', function () {
-    var locals = {},
-        promises = [getRepos()];
+    var promises = [getMembers(), getRepos()];
 
     Promise.all(promises).then(function (results) {
-        locals.repos = results[0];
+        var locals = {
+            members: results[0],
+            repos: results[1]
+        };
 
         gulp.src('./assets/layout/index.jade')
             .pipe(tasks.jade({
