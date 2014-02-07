@@ -16,7 +16,9 @@ h3 {
   color: #eb581a;
   font-weight: normal;
 }
-.our-projects > article {
+.third-block,
+.our-projects > article,
+.faces-list > li {
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -24,6 +26,8 @@ h3 {
   margin-right: 2%;
   margin-bottom: 2%;
   padding: 1em;
+}
+.our-projects > article {
   background: #fff;
   text-align: left;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -129,4 +133,33 @@ h3 {
   bottom: 0;
   display: block;
   background: linear-gradient(rgba(255,255,255,0.4), transparent);
+}
+.faces-list {
+  margin: 0;
+  padding: 0;
+}
+.faces-list > li {
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+.faces-list > li .picture {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-right: 1em;
+  box-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+}
+.faces-list > li .picture img {
+  max-width: 80px;
+}
+.faces-list > li .name {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #eb581a;
+  text-decoration: none;
 }
