@@ -2,7 +2,13 @@ var gulp = require('gulp'),
     tasks = require('gulp-load-tasks')(),
     Promise = require('promise'),
     rp = require('request-promise'),
+    auth;
+
+try {
     auth = require('./lib/auth');
+} catch (e) {
+    auth = null;
+}
 
 // GitHub API endpoints
 
@@ -11,7 +17,7 @@ var cfg = {
         org: 'dddware'
     },
 
-    makeGetRequest = function (uri) {
+    getRequest = function (uri) {
         return rp({
             uri: cfg.baseUrl + uri,
             headers: {
@@ -22,7 +28,7 @@ var cfg = {
     },
 
     getRepos = function () {
-        return makeGetRequest('/orgs/' + cfg.org + '/repos')
+        return getRequest('/orgs/' + cfg.org + '/repos')
             .then(function (repos) {
                 repos = JSON.parse(repos);
                 var promises = [];
@@ -31,7 +37,7 @@ var cfg = {
                 for (var i in repos) {
                     promises.push(
                         Promise.from(
-                            makeGetRequest('/repos/' + cfg.org + '/' + repos[i].name + '/languages')
+                            getRequest('/repos/' + cfg.org + '/' + repos[i].name + '/languages')
                                 .then(function (data) {
                                     data = JSON.parse(data);
 
@@ -67,17 +73,18 @@ var cfg = {
 
 
 
-gulp.task('projects', function () {
-    var locals = {};
+gulp.task('github', function () {
+    var locals = {},
+        promises = [getRepos()];
 
-    getRepos().then(function (repos) {
-        locals.repos = repos;
+    Promise.all(promises).then(function (results) {
+        locals.repos = results[0];
 
         gulp.src('./assets/layout/index.jade')
             .pipe(tasks.jade({
                 locals: locals
             }))
-            .pipe(gulp.dest('./'))
+            .pipe(gulp.dest('./'));
     });
 });
 
@@ -87,6 +94,4 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('./assets/stylesheets'));
 });
 
-gulp.task('default', function () {
-    gulp.run('projects', 'styles');
-});
+gulp.task('default', ['github', 'styles']);
