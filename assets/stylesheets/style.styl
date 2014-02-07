@@ -3,6 +3,8 @@
 javascript = #F15501
 css = #1F085E
 
+orange = #EB581A
+
 * 
   box-sizing border-box
 
@@ -19,10 +21,10 @@ body
 
 
 h1, h3 
-  color #EB581A   
+  color orange   
   font-weight normal
 
-.our-projects > article 
+.third-block
   display inline-block
   position relative
   vertical-align top
@@ -30,10 +32,13 @@ h1, h3
   margin-right 2%
   margin-bottom 2%
   padding 1em
+
+.our-projects > article 
   background #fff
   text-align left
   box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
   border-radius 2px
+  @extend .third-block
   h3  
     position absolute
     margin 0
@@ -47,7 +52,7 @@ h1, h3
       right 0
       top 0
       border 0.3em solid rgba(0, 0, 0, 0)
-      border-right-color #EB581A
+      border-right-color orange
       border-top 0  
 
   .picture 
@@ -77,8 +82,8 @@ h1, h3
 .download-link 
   display inline-block
   background #fff
-  border 1px solid #EB581A
-  color #EB581A
+  border 1px solid orange
+  color orange
   text-decoration none
   font-size 0.8em
   padding 0.3em 0.5em
@@ -86,7 +91,7 @@ h1, h3
   border-radius 3px
   transition all 0.1s
   &:hover 
-    background #EB581A
+    background orange
     color #fff
     text-decoration none
   &:active, &:focus 
@@ -126,3 +131,28 @@ h1, h3
     bottom 0
     display block
     background linear-gradient(rgba(255,255,255,0.4), transparent)
+
+
+face-size = 50px
+.faces-list 
+  margin 0
+  padding 0
+.faces-list > li
+  @extend .third-block
+  .picture
+    background #fff
+    width face-size 
+    height face-size
+    display inline-block
+    vertical-align middle
+    border-radius 50%
+    overflow hidden
+    margin-right 1em
+    box-shadow 0 -1px 1px rgba(0, 0, 0, 0.2)
+    img
+      max-width face-size
+  .name
+    display inline-block
+    font-size 1.2em
+    color orange
+    text-decoration none

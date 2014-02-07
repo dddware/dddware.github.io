@@ -8,7 +8,8 @@ html(lang='en')
   body
     .main
       header
-        h1 dddware
+        a(href='https://github.com/#{org}')
+          h1= org
       section.our-projects
         h2 Our projects
         - each repo in repos
@@ -22,5 +23,15 @@ html(lang='en')
                 li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
             a.download-link(href='#{repo.html_url}') Repository
             div.content= repo.description
+
+      section.our-faces
+        h2 Our faces
+        ul.faces-list
+          - each member in members
+            li
+              .picture
+                img(src='#{member.avatar_url}')
+              a.name(href="#{member.url}")= member.login
+
 // /body
 script(src='assets/scripts/script.js')
