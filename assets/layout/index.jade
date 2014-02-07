@@ -19,7 +19,7 @@ html(lang='en')
                 img(src='nawak', alt='')
             ul.technologies
               - each percentage, language in repo.languages
-                li(class='#{language}', style='width: #{percentage}%', title="#{language}")
+                li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
             a.download-link(href='#{repo.html_url}') Repository
             div.content= repo.description
 // /body

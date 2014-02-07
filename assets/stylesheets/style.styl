@@ -95,11 +95,15 @@ h1, h3
 
 
 .technologies 
+  position relative
   clear both
-  height 10px
+  height 6px
   padding 0
   margin 0
+  margin-top 6px
   margin-bottom 10px
+  border-radius 3px
+  overflow hidden
   text-align right
   overflow hidden
   background #555
@@ -107,12 +111,17 @@ h1, h3
     display inline-block
     vertical-align top
     height 100%
-<<<<<<< HEAD
-=======
-    font-size 0.8
->>>>>>> d991d509bde885c6755c5a3070c1ad7aebc270a9
     margin 0
     &.javascript
       background-color javascript
     &.css
       background-color css
+  &:after
+    content ''
+    position: absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+    display block
+    background linear-gradient(rgba(255,255,255,0.4), transparent)
