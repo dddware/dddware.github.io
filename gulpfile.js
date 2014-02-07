@@ -2,7 +2,12 @@ var gulp = require('gulp'),
     tasks = require('gulp-load-tasks')(),
     Promise = require('promise'),
     rp = require('request-promise'),
+    fs = require('fs'),
+    md = require('markdown'),
+    mde = require('markdown-extra'),
     auth;
+
+
 
 try {
     auth = require('./lib/auth');
@@ -10,7 +15,7 @@ try {
     auth = null;
 }
 
-// GitHub API endpoints
+
 
 var cfg = {
         baseUrl: 'https://api.github.com',
@@ -76,17 +81,74 @@ var cfg = {
                     return repos;
                 });
             });
+    },
+
+    getProjects = function () {
+        return new Promise(function (resolve, reject) {
+            fs.readdir('assets/projects/', function (err, files) {
+                if (err) {
+                    reject(err);
+                }
+
+                var promises = [],
+                    nb = files.length;
+
+                [].forEach.call(files, function (file, i) {
+                    promises.push(
+                        new Promise(function (resolve, reject) {
+                            fs.readFile('assets/projects/' + file, { encoding: 'utf8' }, function (err, markdown) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    var project = {
+                                            content: md.parse(mde.content(markdown))
+                                        },
+
+                                        metadata = mde.metadata(markdown, function (data) {
+                                            var split = data.split("\n"),
+                                                i;
+
+                                            data = {};
+
+                                            for (i in split) {
+                                                var line = split[i].split(': ');
+                                                data[line[0]] = eval(line[1]);
+                                            }
+
+                                            return data;
+                                        });
+
+                                    for (var key in metadata) {
+                                        if (metadata.hasOwnProperty(key)) {
+                                            project[key] = metadata[key];
+                                        }
+                                    }
+
+                                    resolve(project);
+                                }
+                            });
+                        })
+                    );
+                });
+
+                Promise.all(promises).then(function (projects) {
+                    resolve(projects);
+                });
+            });
+        });
     };
 
 
 
 gulp.task('github', function () {
-    var promises = [getMembers(), getRepos()];
+    var promises = [getMembers(), getRepos(), getProjects()];
 
     Promise.all(promises).then(function (results) {
         var locals = {
             members: results[0],
-            repos: results[1]
+            repos: results[1],
+            projects: results[2],
+            org: cfg.org
         };
 
         gulp.src('./assets/layout/index.jade')
