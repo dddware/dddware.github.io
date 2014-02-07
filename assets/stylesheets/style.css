@@ -138,24 +138,19 @@ h3 {
   margin: 0;
   padding: 0;
 }
-.faces-list > li {
-  background: #fff;
-  text-align: left;
-  box-shadow: 0 -1px 1px rgba(0,0,0,0.2);
-  border-radius: 3px;
-}
 .faces-list > li .picture {
-  width: 80px;
-  height: 80px;
+  background: #fff;
+  width: 50px;
+  height: 50px;
   display: inline-block;
   vertical-align: middle;
-  border-radius: 3px;
+  border-radius: 50%;
   overflow: hidden;
   margin-right: 1em;
   box-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 }
 .faces-list > li .picture img {
-  max-width: 80px;
+  max-width: 50px;
 }
 .faces-list > li .name {
   display: inline-block;
