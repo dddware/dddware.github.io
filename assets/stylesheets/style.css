@@ -111,6 +111,7 @@ h3 {
   display: inline-block;
   vertical-align: top;
   height: 100%;
+  font-size: 0.8;
   margin: 0;
 }
 .technologies li.javascript {
