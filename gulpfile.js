@@ -84,6 +84,7 @@ var cfg = {
     },
 
     getProjects = function () {
+        // Main promise of reading folder and parsing its files
         return new Promise(function (resolve, reject) {
             fs.readdir('assets/projects/', function (err, files) {
                 if (err) {
@@ -93,6 +94,7 @@ var cfg = {
                 var promises = [],
                     nb = files.length;
 
+                // Markdown files parsing promises
                 [].forEach.call(files, function (file, i) {
                     promises.push(
                         new Promise(function (resolve, reject) {
