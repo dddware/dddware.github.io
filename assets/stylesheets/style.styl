@@ -3,37 +3,50 @@
 javascript = #F15501
 css = #1F085E
 
-orange = #EB581A
+orange = javascript
 
 * 
   box-sizing border-box
 
 
 body 
+  margin 0
   background #f2f2f2
-  background radial-gradient(#F2F2F2,#EEE)
+  background radial-gradient(#F2F2F2,#ddd)
+  font-size 16px
   font-family 'consolas' , 'deja vu sans mono',"lucida grande", "verdana", "arial", sans-serif
 
 
-.main 
+.main > section, .container, .main > header
   max-width 1200px
   margin 0 auto
-
-
+  margin-bottom 2em
+  padding 1em
+.main > section .container
+  margin 0 auto
+  padding 0
+.main > header 
+  margin-bottom 0
+  h1
+      margin-bottom 0
 h1, h3 
   color orange   
   font-weight normal
+  a
+    text-decoration none
+    color orange 
 
 .third-block
   display inline-block
   position relative
   vertical-align top
   width 30%
+  min-width 320px
   margin-right 2%
   margin-bottom 2%
   padding 1em
 
-.our-projects > article 
+.projects article 
   background #fff
   text-align left
   box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
@@ -57,7 +70,7 @@ h1, h3
 
   .picture 
     transition all 0.2s
-    max-height 80px
+    max-height 40px
     overflow hidden
     img 
       width 100%
@@ -132,8 +145,15 @@ h1, h3
     display block
     background linear-gradient(rgba(255,255,255,0.4), transparent)
 
+section.faces
+  background orange
+  max-width 100%
+  margin 0
+  color #fff
+  a
+    color #fff
 
-face-size = 50px
+face-size = 60px
 .faces-list 
   margin 0
   padding 0
@@ -148,11 +168,20 @@ face-size = 50px
     border-radius 50%
     overflow hidden
     margin-right 1em
-    box-shadow 0 -1px 1px rgba(0, 0, 0, 0.2)
     img
       max-width face-size
   .name
     display inline-block
     font-size 1.2em
-    color orange
     text-decoration none
+
+.project-list article
+  background #fff
+  text-align left
+  box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
+  border-radius 2px
+  @extend .third-block
+
+@media screen and (min-width: 1024px)
+  .third-block
+    max-width 45%

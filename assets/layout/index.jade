@@ -8,10 +8,10 @@ html(lang='en')
   body
     .main
       header
-        a(href='https://github.com/#{org}')
-          h1= org
-      section.our-projects
-        h2 Our projects
+        h1
+          a(href='https://github.com/#{org}')= org
+      section.projects
+        h2 Repositories
         - each repo in repos
           article
             .preview
@@ -24,14 +24,29 @@ html(lang='en')
             a.download-link(href='#{repo.html_url}') Repository
             div.content= repo.description
 
-      section.our-faces
-        h2 Our faces
-        ul.faces-list
-          - each member in members
-            li
-              .picture
-                img(src='#{member.avatar_url}')
-              a.name(href="#{member.url}")= member.login
+      section.faces
+        .container
+          h2 Members
+          ul.faces-list
+            - each member in members
+              li
+                .picture
+                  img(src='#{member.avatar_url}')
+                a.name(href="#{member.url}")= member.login
+
+      section.project
+        h2 Project
+        .project-list
+          - each project in projects
+            article
+              h3=  project.name
+              ul.tools
+                - if (project.hasOwnProperty('tools') && project.tools)
+                  - each tool in project.tools
+                    li= tool
+              div.content!= project.content
+              progress( value="#{project.completeness}", min=0, max=100)
+
 
 // /body
 script(src='assets/scripts/script.js')
