@@ -9,8 +9,8 @@ html(lang='en')
     .main
       header
         h1
-          a(href='https://github.com/#{org}')= org
-      section.projects
+          a(href='https://github.com/#{org}', target="_blank")= org
+      section.repositories
         h2 Repositories
         - each repo in repos
           article
@@ -21,7 +21,7 @@ html(lang='en')
             ul.technologies
               - each percentage, language in repo.languages
                 li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
-            a.download-link(href='#{repo.html_url}') Repository
+            a.download-link(href='#{repo.html_url}', target="_blank") Repository
             div.content= repo.description
 
       section.faces
@@ -32,10 +32,10 @@ html(lang='en')
               li
                 .picture
                   img(src='#{member.avatar_url}')
-                a.name(href="#{member.url}")= member.login
+                a.name(href="#{member.html_url}", target="_blank")= member.login
 
-      section.project
-        h2 Project
+      section.projects
+        h2 Projects
         .project-list
           - each project in projects
             article
@@ -45,7 +45,7 @@ html(lang='en')
                   - each tool in project.tools
                     li= tool
               div.content!= project.content
-              progress( value="#{project.completeness}", min=0, max=100)
+              progress(value="#{project.completeness}", min=0, max=100)
 
 
 // /body

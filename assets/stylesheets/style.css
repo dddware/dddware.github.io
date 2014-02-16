@@ -38,7 +38,7 @@ h3 a {
   color: #f15501;
 }
 .third-block,
-.projects article,
+.repositories article,
 .faces-list > li,
 .project-list article {
   display: inline-block;
@@ -50,20 +50,20 @@ h3 a {
   margin-bottom: 2%;
   padding: 1em;
 }
-.projects article {
+.repositories article {
   background: #fff;
   text-align: left;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   border-radius: 2px;
 }
-.projects article h3 {
+.repositories article h3 {
   position: absolute;
   margin: 0;
   background: rgba(255,255,255,0.8);
   padding: 0.2em 0.5em;
   font-size: 1.5em;
 }
-.projects article h3:before {
+.repositories article h3:before {
   content: '';
   display: block;
   position: absolute;
@@ -73,15 +73,15 @@ h3 a {
   border-right-color: #f15501;
   border-top: 0;
 }
-.projects article .picture {
+.repositories article .picture {
   transition: all 0.2s;
   max-height: 40px;
   overflow: hidden;
 }
-.projects article .picture img {
+.repositories article .picture img {
   width: 100%;
 }
-.projects article .content {
+.repositories article .content {
   clear: both;
   max-height: 12em;
   overflow: hidden;
@@ -89,7 +89,7 @@ h3 a {
   margin-bottom: 0;
   transition: all 0.2s;
 }
-.projects article .content:after {
+.repositories article .content:after {
   display: block;
   position: absolute;
   right: 0;

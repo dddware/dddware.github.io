@@ -1,6 +1,6 @@
 <!--
 name: 'userspy'
-tools: ['JavaScript', 'Socket.IO']
+tools: ['Vanilla JS', 'Socket.IO']
 completeness: 0
 -->
 
