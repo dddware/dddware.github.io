@@ -14,6 +14,8 @@
     "markdown": "~0.5.0",
     "request-promise": "0.0.2",
     "promise": "~3.2.0",
-    "gulp-stylus": "0.0.11"
+    "gulp-stylus": "0.0.11",
+    "autoprefixer": "~1.1.20140327",
+    "gulp-csso": "~0.2.6"
   }
 }

@@ -167,4 +167,8 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('./assets/stylesheets'));
 });
 
+gulp.task('watch', function() {
+    gulp.watch(['./assets/**/*'], ['github', 'styles']);
+});
+
 gulp.task('default', ['github', 'styles']);

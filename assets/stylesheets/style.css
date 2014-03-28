@@ -1,11 +1,13 @@
 @charset 'utf-8';
 * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 body {
   margin: 0;
   background: #f2f2f2;
-  background: radial-gradient(#f2f2f2, #ddd);
+  background: radial-gradient(#f2f2f2, #eee);
   font-size: 16px;
   font-family: 'consolas', 'deja vu sans mono', "lucida grande", "verdana", "arial", sans-serif;
 }
@@ -23,6 +25,7 @@ body {
 }
 .main > header {
   margin-bottom: 0;
+  padding: 0 1em;
 }
 .main > header h1 {
   margin-bottom: 0;
@@ -37,6 +40,9 @@ h3 a {
   text-decoration: none;
   color: #f15501;
 }
+h3 {
+  margin-top: 0;
+}
 .third-block,
 .repositories article,
 .faces-list > li,
@@ -49,6 +55,7 @@ h3 a {
   margin-right: 2%;
   margin-bottom: 2%;
   padding: 1em;
+  padding-bottom: 0.5em;
 }
 .repositories article {
   background: #fff;
@@ -157,6 +164,32 @@ h3 a {
   display: block;
   background: linear-gradient(rgba(255,255,255,0.4), transparent);
 }
+progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  padding: 0;
+  margin: 0;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  text-align: right;
+  overflow: hidden;
+  background: #ccc;
+}
+progress::-webkit-progress-bar {
+  background-color: #f15501;
+}
+progress::-moz-progress-bar {
+  background-color: #f15501;
+}
+progress::progress-bar {
+  background-color: #f15501;
+}
 section.faces {
   background: #f15501;
   max-width: 100%;
@@ -193,6 +226,10 @@ section.faces a {
   text-align: left;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   border-radius: 2px;
+}
+.preview {
+  min-height: 75px;
+  background: #f2f2f2;
 }
 @media screen and (min-width: 1024px) {
   .third-block {
