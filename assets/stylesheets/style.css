@@ -6,29 +6,72 @@
 }
 body {
   margin: 0;
+  padding-top: 78px;
   background: #f2f2f2;
   background: radial-gradient(#f2f2f2, #eee);
   font-size: 16px;
   font-family: 'consolas', 'deja vu sans mono', "lucida grande", "verdana", "arial", sans-serif;
 }
-.main > section,
 .container,
-.main > header {
-  max-width: 1200px;
+header,
+section {
+  position: relative;
+  max-width: 1600px;
   margin: 0 auto;
-  margin-bottom: 2em;
   padding: 1em;
 }
 .main > section .container {
   margin: 0 auto;
   padding: 0;
 }
-.main > header {
+header {
+  height: 78px;
+  position: fixed;
+  z-index: 1;
+  padding: 1em 1em;
+  top: 0;
+  left: 0;
+  right: 0;
   margin-bottom: 0;
-  padding: 0 1em;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
 }
-.main > header h1 {
-  margin-bottom: 0;
+header h1 {
+  margin: 0;
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  position: absolute;
+  display: block;
+  right: 20px;
+  top: 20px;
+}
+header li {
+  display: inline-block;
+  margin-left: 10px;
+}
+header li a {
+  display: block;
+  padding: 0.4em 1em;
+  background: #fff;
+  color: #f15501;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: 0.1s;
+}
+header li a:hover,
+header li a:focus {
+  background: #f15501;
+  border: 1px solid #d84c01;
+  color: #fff;
+}
+header li a:active {
+  background: #ddd;
+  border: 1px solid #ccc;
+  color: #999;
 }
 h1,
 h3 {
@@ -40,22 +83,26 @@ h3 a {
   text-decoration: none;
   color: #f15501;
 }
+h2 {
+  color: #333;
+  color: rgba(0,0,0,0.5);
+}
 h3 {
   margin-top: 0;
 }
-.third-block,
-.repositories article,
-.faces-list > li,
-.project-list article {
+.fourth-block,
+.third-block {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 30%;
-  min-width: 320px;
-  margin-right: 2%;
-  margin-bottom: 2%;
+  width: 25%;
+  margin-bottom: 1px;
+  overflow: hidden;
   padding: 1em;
   padding-bottom: 0.5em;
+}
+.third-block {
+  width: 33.333333333333336%;
 }
 .repositories article {
   background: #fff;
@@ -181,7 +228,7 @@ progress {
   overflow: hidden;
   background: #ccc;
 }
-progress::-webkit-progress-bar {
+progress::-webkit-progress-value {
   background-color: #f15501;
 }
 progress::-moz-progress-bar {
@@ -231,8 +278,28 @@ section.faces a {
   min-height: 75px;
   background: #f2f2f2;
 }
-@media screen and (min-width: 1024px) {
-  .third-block {
-    max-width: 45%;
+@media (max-width: 1300px) {
+  .fourth-block {
+    width: 20%;
+  }
+}
+@media (max-width: 1024px) {
+  .fourth-block {
+    width: 25%;
+  }
+}
+@media (max-width: 1000px) {
+  .fourth-block {
+    width: 33.333333333333336%;
+  }
+}
+@media (max-width: 800px) {
+  .fourth-block {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  .fourth-block {
+    width: 100%;
   }
 }

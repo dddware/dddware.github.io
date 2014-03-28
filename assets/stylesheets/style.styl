@@ -3,6 +3,7 @@
 javascript = #F15501
 css = #1F085E
 orange = javascript
+headerHeight = 78px
 
 * 
   -moz-box-sizing border-box
@@ -12,54 +13,101 @@ orange = javascript
 
 body 
   margin 0
+  padding-top headerHeight
   background #f2f2f2
   background radial-gradient(#F2F2F2,#eee)
   font-size 16px
   font-family 'consolas' , 'deja vu sans mono',"lucida grande", "verdana", "arial", sans-serif
 
 
-.main > section, 
 .container, 
-.main > header
-  max-width 1200px
+header,
+section 
+  position relative
+  max-width 1600px
   margin 0 auto
-  margin-bottom 2em
   padding 1em
 .main > section .container
   margin 0 auto
   padding 0
-.main > header 
+
+header
+  height headerHeight
+  position fixed
+  z-index 1
+  padding 1em 1em
+  top 0
+  left 0
+  right 0
   margin-bottom 0
-  padding 0 1em
+  background #fff
+  border-bottom 1px solid #ccc
   h1
-      margin-bottom 0
+    margin 0
+  nav 
+    ul
+      margin 0
+      padding 0
+      text-align right
+      position absolute
+      display block
+      right 20px
+      top 20px
+  li 
+    display inline-block
+    margin-left 10px
+    a
+      display block
+      padding 0.4em 1em
+      background #fff 
+      color orange
+      text-decoration none
+      border 1px solid #ddd
+      border-radius 3px
+      transition 0.1s
+      &:hover,
+      &:focus
+        background orange
+        border 1px solid darken(orange,5)
+        color #fff
+      &:active
+        background #ddd
+        border 1px solid #ccc
+        color #999
+  
+
 h1, h3 
   color orange   
   font-weight normal
   a
     text-decoration none
     color orange 
+h2
+  color #333
+  color rgba(0,0,0,0.5)
 h3 
   margin-top 0
 
     
+.fourth-block,
 .third-block
   display inline-block
   position relative
   vertical-align top
-  width 30%
-  min-width 320px
-  margin-right 2%
-  margin-bottom 2%
+  width (100/4)%
+  margin-bottom 1px
+  overflow hidden
   padding 1em
   padding-bottom 0.5em
+.third-block
+  width (100/3)%
+
 
 .repositories article 
   background #fff
   text-align left
   box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
   border-radius 2px
-  @extend .third-block
   h3  
     position absolute
     margin 0
@@ -169,7 +217,7 @@ progress
   text-align right
   overflow hidden
   background #ccc
-  &::-webkit-progress-bar
+  &::-webkit-progress-value
     background-color orange
   &::-moz-progress-bar
     background-color orange
@@ -188,7 +236,6 @@ face-size = 60px
   margin 0
   padding 0
 .faces-list > li
-  @extend .third-block
   .picture
     background #fff
     width face-size 
@@ -210,12 +257,23 @@ face-size = 60px
   text-align left
   box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
   border-radius 2px
-  @extend .third-block
 
 .preview
   min-height 75px
   background #f2f2f2
 
-@media screen and (min-width: 1024px)
-  .third-block
-    max-width 45%
+@media (max-width: 1300px)
+  .fourth-block
+    width 20%
+@media (max-width: 1024px)
+  .fourth-block
+    width 25%
+@media (max-width: 1000px)
+  .fourth-block
+    width (100/3)%
+@media (max-width: 800px)
+  .fourth-block
+    width 50%
+@media (max-width: 600px)
+  .fourth-block
+    width 100%
