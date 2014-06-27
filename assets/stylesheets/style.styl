@@ -107,9 +107,7 @@ h3
 
     
 .jumper
-  display inline-block
   position relative
-  vertical-align top
   width 100%
   overflow hidden
   padding 0.8em 1em
@@ -120,14 +118,17 @@ h3
   article 
     position relative
     padding-left 42%
+    max-height 3.4em
     background #fff
     text-align left
     border-bottom 1px solid #FFD4BD
-    height 3.4em
-    -webkit-transition all 0.2s
-    transition all 0.2s
+    -moz-transition 0.3s linear
+    -ms-transition 0.3s linear
+    -o-transition 0.3s linear
+    -webkit-transition 0.3s linear
+    transition 0.3s linear
     &:hover
-      height 7em
+      max-height 999em
     &:nth-child(odd)
       background #FFF0E8
     &:nth-child(1)
@@ -261,10 +262,10 @@ face-size = 120px
       position static
       margin-top -0.2em
       maring-bottom 1em
-    &:hover
+    /*&:hover
       height 9em
     &.large:hover
-      height 11em
+      height 11em*/
   header nav
     position absolute
     right 0

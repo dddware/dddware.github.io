@@ -109,9 +109,7 @@ h3 {
   margin-top: 0;
 }
 .jumper {
-  display: inline-block;
   position: relative;
-  vertical-align: top;
   width: 100%;
   overflow: hidden;
   padding: 0.8em 1em;
@@ -120,15 +118,18 @@ h3 {
 .repositories article {
   position: relative;
   padding-left: 42%;
+  max-height: 3.4em;
   background: #fff;
   text-align: left;
   border-bottom: 1px solid #ffd4bd;
-  height: 3.4em;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  -moz-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 .repositories article:hover {
-  height: 7em;
+  max-height: 999em;
 }
 .repositories article:nth-child(odd) {
   background: #fff0e8;
@@ -279,17 +280,15 @@ section.faces a {
   }
   .repositories article {
     padding: 1em;
+/*&:hover
+      height 9em
+    &.large:hover
+      height 11em*/
   }
   .repositories article h3 {
     position: static;
     margin-top: -0.2em;
     maring-bottom: 1em;
-  }
-  .repositories article:hover {
-    height: 9em;
-  }
-  .repositories article.large:hover {
-    height: 11em;
   }
   header nav {
     position: absolute;
