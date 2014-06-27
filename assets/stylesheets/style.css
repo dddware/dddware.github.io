@@ -7,7 +7,6 @@
 }
 body {
   margin: 0;
-  padding-top: 5.4em;
   background: #f2f2f2;
   background: radial-gradient(#f2f2f2, #eee);
   font-size: 14px;
@@ -30,6 +29,7 @@ section {
 }
 section {
   display: none;
+  padding-top: 5.4em;
 }
 section.active {
   display: block;
@@ -262,7 +262,7 @@ section.faces a {
   }
 }
 @media (max-width: 800px) {
-  body {
+  section {
     padding-top: 7em;
   }
   header {
@@ -283,7 +283,7 @@ section.faces a {
     position: absolute;
     right: 0;
     left: 0;
-    bottom: -1px;
+    bottom: 0;
   }
   header nav ul {
     position: static;

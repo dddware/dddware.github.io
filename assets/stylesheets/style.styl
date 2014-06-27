@@ -16,7 +16,6 @@ headerHeight = 5.4em
 
 body 
   margin 0
-  padding-top headerHeight
   background #f2f2f2
   background radial-gradient(#F2F2F2,#eee)
   font-size 14px
@@ -38,6 +37,7 @@ section
 
 section
   display none
+  padding-top headerHeight
   &.active
     display block
 
@@ -245,7 +245,7 @@ face-size = 120px
   .fourth-block
     width (100/3)%
 @media (max-width: 800px)
-  body
+  section
     padding-top 7em
   header
     height 7em
@@ -261,7 +261,7 @@ face-size = 120px
     position absolute
     right 0
     left 0
-    bottom -1px
+    bottom 0
     ul
       position static
       text-align center
