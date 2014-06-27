@@ -21,7 +21,11 @@ html(lang='en')
         .repositories
           - each repo in repos
             article.jumper
-              h3= repo.name
+              - if (repo.homepage)
+                h3
+                  a(href=repo.homepage)= repo.name
+              - else
+                h3= repo.name
               ul.technologies
                 - each percentage, language in repo.languages
                   li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
