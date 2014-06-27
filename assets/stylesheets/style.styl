@@ -51,7 +51,6 @@ header
   right 0
   margin-bottom 0
   background #fff
-  border 1px solid #ccc
   border-top 0
   h1
     margin 3px
@@ -79,7 +78,7 @@ header
       &:hover,
       &:focus
         background orange
-        border 1px solid darken(orange,5)
+        border 1px solid orange
         color #fff
       &:active
         background #ddd
@@ -101,7 +100,10 @@ h1, h3
 h2
   color #333
   color rgba(0,0,0,0.5)
-  padding-left 1em
+  padding 1em
+  background #F15501
+  color #FFF
+  margin 0
 h3 
   margin-top 0
 
@@ -126,12 +128,8 @@ h3
     border-bottom 1px solid #FFD4BD
     -webkit-transition all 0.2s
     transition all 0.2s
-    &:hover
-      height 7em
     &:nth-child(odd)
       background #FFF0E8
-    &:nth-child(1)
-      border-top 1px solid #FFD4BD
   &.large article:hover
     height 12em
   h3  
@@ -154,7 +152,7 @@ h3
   overflow hidden
   text-align right
   overflow hidden
-  background #555
+  background #FFD4BD
   opacity 0.9
   li
     display inline-block
@@ -201,7 +199,7 @@ progress
   overflow hidden
   text-align right
   overflow hidden
-  background #ccc
+  background #FFD4BD
   &::-webkit-progress-value
     background-color orange
   &::-moz-progress-bar
@@ -213,8 +211,6 @@ section.faces
   background orange
   max-width 100%
   margin 0
-  margin-top 20px
-  padding: 2em
   color #fff
   border-radius 3px
   a
@@ -260,11 +256,7 @@ face-size = 120px
     h3
       position static
       margin-top -0.2em
-      maring-bottom 1em
-    &:hover
-      height 9em
-    &.large:hover
-      height 12em
+      margin-bottom 1em
   header nav
     position absolute
     right 0
@@ -277,7 +269,7 @@ face-size = 120px
         display inline-block
         a
           background none
-          border-bottom 0
+          border-bottom 1px solid orange
           border-radius 3px 3px 0 0
           &.active
             background none

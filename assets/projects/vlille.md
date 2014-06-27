@@ -1,7 +1,7 @@
 <!--
 name: 'vlille'
 tools: ['React', 'Google Maps']
-completeness: 0
+completeness: 30
 -->
 
 Clientside interface for [this XML API](http://mouth.sigill.org/acces-aux-donnees-vlille/).

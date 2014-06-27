@@ -44,7 +44,6 @@ header {
   right: 0;
   margin-bottom: 0;
   background: #fff;
-  border: 1px solid #ccc;
   border-top: 0;
 }
 header h1 {
@@ -76,7 +75,7 @@ header li a {
 header li a:hover,
 header li a:focus {
   background: #f15501;
-  border: 1px solid #d84c01;
+  border: 1px solid #f15501;
   color: #fff;
 }
 header li a:active {
@@ -103,7 +102,10 @@ h3 a {
 h2 {
   color: #333;
   color: rgba(0,0,0,0.5);
-  padding-left: 1em;
+  padding: 1em;
+  background: #f15501;
+  color: #fff;
+  margin: 0;
 }
 h3 {
   margin-top: 0;
@@ -127,14 +129,8 @@ h3 {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-.repositories article:hover {
-  height: 7em;
-}
 .repositories article:nth-child(odd) {
   background: #fff0e8;
-}
-.repositories article:nth-child(1) {
-  border-top: 1px solid #ffd4bd;
 }
 .repositories.large article:hover {
   height: 12em;
@@ -159,7 +155,7 @@ h3 {
   overflow: hidden;
   text-align: right;
   overflow: hidden;
-  background: #555;
+  background: #ffd4bd;
   opacity: 0.9;
 }
 .technologies li {
@@ -211,7 +207,7 @@ progress {
   overflow: hidden;
   text-align: right;
   overflow: hidden;
-  background: #ccc;
+  background: #ffd4bd;
 }
 progress::-webkit-progress-value {
   background-color: #f15501;
@@ -226,8 +222,6 @@ section.faces {
   background: #f15501;
   max-width: 100%;
   margin: 0;
-  margin-top: 20px;
-  padding: 2em;
   color: #fff;
   border-radius: 3px;
 }
@@ -283,13 +277,7 @@ section.faces a {
   .repositories article h3 {
     position: static;
     margin-top: -0.2em;
-    maring-bottom: 1em;
-  }
-  .repositories article:hover {
-    height: 9em;
-  }
-  .repositories article.large:hover {
-    height: 12em;
+    margin-bottom: 1em;
   }
   header nav {
     position: absolute;
@@ -306,7 +294,7 @@ section.faces a {
   }
   header nav ul li a {
     background: none;
-    border-bottom: 0;
+    border-bottom: 1px solid #f15501;
     border-radius: 3px 3px 0 0;
   }
   header nav ul li a.active {
