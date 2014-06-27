@@ -75,18 +75,18 @@ header li a {
 header li a:hover,
 header li a:focus {
   background: #f15501;
-  border: 1px solid #f15501;
+  border-color: #f15501;
   color: #fff;
 }
 header li a:active {
   background: #ddd;
-  border: 1px solid #ccc;
+  border-color: #ccc;
   color: #999;
 }
 header li a.active {
   cursor: default;
   background: #fff;
-  border: 1px solid transparent;
+  border-color: transparent;
   color: #f15501;
 }
 h1,
@@ -294,7 +294,7 @@ section.faces a {
   }
   header nav ul li a {
     background: none;
-    border-bottom: 1px solid #f15501;
+    border-bottom: 0;
     border-radius: 3px 3px 0 0;
   }
   header nav ul li a.active {
