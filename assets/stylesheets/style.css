@@ -170,6 +170,9 @@ h3 {
 .technologies li.css {
   background-color: #1f085e;
 }
+.technologies li.ruby {
+  background-color: #f10601;
+}
 .download-link {
   display: inline-block;
   float: left;
