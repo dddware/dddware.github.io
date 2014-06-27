@@ -143,6 +143,15 @@ h3 {
   padding: 0 0.5em;
   font-size: 1.5em;
 }
+.repositories h3 a {
+  position: relative;
+}
+.repositories h3 a:after {
+  position: absolute;
+  content: '➚';
+  top: 0;
+  right: -0.8em;
+}
 .technologies {
   position: relative;
   clear: both;
