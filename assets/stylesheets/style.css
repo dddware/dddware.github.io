@@ -9,20 +9,30 @@ body {
   padding-top: 78px;
   background: #f2f2f2;
   background: radial-gradient(#f2f2f2, #eee);
-  font-size: 16px;
-  font-family: 'consolas', 'deja vu sans mono', "lucida grande", "verdana", "arial", sans-serif;
+  font-size: 14px;
+  font-family: 'Open sans', 'Calibri', "arial", sans-serif;
 }
 .container,
 header,
 section {
   position: relative;
-  max-width: 1600px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 1em;
+}
+.main {
+  margin: 0 auto;
+  max-width: 960px;
 }
 .main > section .container {
   margin: 0 auto;
   padding: 0;
+}
+section {
+  display: none;
+}
+section.active {
+  display: block;
 }
 header {
   height: 78px;
@@ -34,7 +44,8 @@ header {
   right: 0;
   margin-bottom: 0;
   background: #fff;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-top: 0;
 }
 header h1 {
   margin: 0;
@@ -60,7 +71,7 @@ header li a {
   text-decoration: none;
   border: 1px solid #ddd;
   border-radius: 3px;
-  transition: 0.1s;
+  transition: all 0.2s;
 }
 header li a:hover,
 header li a:focus {
@@ -72,6 +83,12 @@ header li a:active {
   background: #ddd;
   border: 1px solid #ccc;
   color: #999;
+}
+header li a.active {
+  cursor: default;
+  background: #fff;
+  border: 1px solid transparent;
+  color: #f15501;
 }
 h1,
 h3 {
@@ -90,78 +107,80 @@ h2 {
 h3 {
   margin-top: 0;
 }
-.fourth-block,
-.third-block {
+.jumper {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 25%;
-  margin-bottom: 1px;
+  width: 100%;
   overflow: hidden;
-  padding: 1em;
+  padding: 0.8em 1em;
   padding-bottom: 0.5em;
 }
-.third-block {
-  width: 33.333333333333336%;
-}
 .repositories article {
+  position: relative;
+  padding-left: 42%;
   background: #fff;
   text-align: left;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-  border-radius: 2px;
+  border-bottom: 1px solid #ffd4bd;
+  height: 3.4em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
-.repositories article h3 {
+.repositories article:hover {
+  height: 7em;
+}
+.repositories article:nth-child(odd) {
+  background: #fff0e8;
+}
+.repositories.large article:hover {
+  height: 12em;
+}
+.repositories h3 {
   position: absolute;
+  left: 0.4em;
+  top: 0.4em;
   margin: 0;
-  background: rgba(255,255,255,0.8);
   padding: 0.2em 0.5em;
   font-size: 1.5em;
 }
-.repositories article h3:before {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  border: 0.3em solid rgba(0,0,0,0);
-  border-right-color: #f15501;
-  border-top: 0;
-}
-.repositories article .picture {
-  transition: all 0.2s;
-  max-height: 40px;
-  overflow: hidden;
-}
-.repositories article .picture img {
-  width: 100%;
-}
-.repositories article .content {
-  clear: both;
-  max-height: 12em;
-  overflow: hidden;
+.technologies {
   position: relative;
-  margin-bottom: 0;
-  transition: all 0.2s;
+  clear: both;
+  height: 6px;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 26px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-align: right;
+  overflow: hidden;
+  background: #555;
+  opacity: 0.9;
 }
-.repositories article .content:after {
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2em;
-  background: linear-gradient(transparent, #fff);
-  -webkit-transition: all 0.2s;
+.technologies li {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  margin: 0;
+}
+.technologies li.javascript {
+  background-color: #f15501;
+}
+.technologies li.css {
+  background-color: #1f085e;
 }
 .download-link {
   display: inline-block;
+  float: left;
   background: #fff;
   border: 1px solid #f15501;
   color: #f15501;
   text-decoration: none;
   font-size: 0.8em;
   padding: 0.3em 0.5em;
-  margin-bottom: 10px;
+  margin: 0 10px 10px 0;
   border-radius: 3px;
   transition: all 0.1s;
 }
@@ -173,43 +192,6 @@ h3 {
 .download-link:active,
 .download-link:focus {
   box-shadow: inset 0 5px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(0,0,0,0.1);
-}
-.technologies {
-  position: relative;
-  clear: both;
-  height: 6px;
-  padding: 0;
-  margin: 0;
-  margin-top: 6px;
-  margin-bottom: 10px;
-  border-radius: 3px;
-  overflow: hidden;
-  text-align: right;
-  overflow: hidden;
-  background: #555;
-}
-.technologies li {
-  display: inline-block;
-  vertical-align: top;
-  height: 100%;
-  font-size: 0.8;
-  margin: 0;
-}
-.technologies li.javascript {
-  background-color: #f15501;
-}
-.technologies li.css {
-  background-color: #1f085e;
-}
-.technologies:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  background: linear-gradient(rgba(255,255,255,0.4), transparent);
 }
 progress {
   -moz-appearance: none;
@@ -241,31 +223,42 @@ section.faces {
   background: #f15501;
   max-width: 100%;
   margin: 0;
+  margin-top: 20px;
+  padding: 2em;
   color: #fff;
+  border-radius: 3px;
 }
 section.faces a {
   color: #fff;
 }
 .faces-list {
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  list-style: none;
+}
+.faces-list > li {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.333333333333336%;
+  height: 144px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .faces-list > li .picture {
   background: #fff;
-  width: 60px;
-  height: 60px;
-  display: inline-block;
+  width: 120px;
+  height: 120px;
   vertical-align: middle;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 1em;
+  margin: auto;
+  margin-bottom: 20px;
 }
 .faces-list > li .picture img {
-  max-width: 60px;
+  max-width: 120px;
 }
 .faces-list > li .name {
-  display: inline-block;
-  font-size: 1.2em;
+  font-size: 1.4em;
   text-decoration: none;
 }
 .project-list article {

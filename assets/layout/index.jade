@@ -12,17 +12,14 @@ html(lang='en')
           a(href='https://github.com/#{org}', target="_blank")= org
         nav
           ul
-            li: a(href="#repositories") Repositories
+            li: a.active(href="#repositories") Repositories
             li: a(href="#faces") Faces
             li: a(href="#projects") Projects
-      section#repositories.repositories
+      section#repositories.repositories.active
         h2 Repositories
         - each repo in repos
-          article.fourth-block
-            .preview
-              h3= repo.name
-              .picture
-                img(src='nawak', alt='')
+          article.jumper
+            h3= repo.name
             ul.technologies
               - each percentage, language in repo.languages
                 li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
@@ -30,8 +27,8 @@ html(lang='en')
             div.content= repo.description
 
       section#faces.faces
+        h2 Members
         .container
-          h2 Members
           ul.faces-list
             - each member in members
               li.third-block
@@ -41,17 +38,18 @@ html(lang='en')
 
       section#projects.projects
         h2 Projects
-        .project-list
+        .repositories.large
           - each project in projects
-            article.fourth-block
+            article.jumper
               h3=  project.name
+              progress(value="#{project.completeness}", min=0, max=100)
+
               ul.tools
                 - if (project.hasOwnProperty('tools') && project.tools)
                   - each tool in project.tools
                     li= tool
               div.content!= project.content
-              progress(value="#{project.completeness}", min=0, max=100)
-
+             
 
 // /body
 script(src='assets/scripts/script.js')
