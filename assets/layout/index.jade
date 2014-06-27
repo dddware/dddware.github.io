@@ -15,23 +15,24 @@ html(lang='en')
             li: a.active(href="#repositories") Repositories
             li: a(href="#faces") Faces
             li: a(href="#projects") Projects
-      section#repositories.repositories.active
+      section#repositories.active
         h2 Repositories
-        - each repo in repos
-          article.jumper
-            h3= repo.name
-            ul.technologies
-              - each percentage, language in repo.languages
-                li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
-            a.download-link(href='#{repo.html_url}', target="_blank") Repository
-            div.content= repo.description
+        .repositories
+          - each repo in repos
+            article.jumper
+              h3= repo.name
+              ul.technologies
+                - each percentage, language in repo.languages
+                  li(class='#{language}', style='width: #{percentage}%', title="#{language} : #{percentage}%")
+              a.download-link(href='#{repo.html_url}', target="_blank") Repository
+              div.content= repo.description
 
       section#faces.faces
         h2 Members
         .container
           ul.faces-list
             - each member in members
-              li.third-block
+              li
                 .picture
                   img(src='#{member.avatar_url}')
                 a.name(href="#{member.html_url}", target="_blank")= member.login

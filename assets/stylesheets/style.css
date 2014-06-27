@@ -1,4 +1,5 @@
 @charset 'utf-8';
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700");
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -6,7 +7,7 @@
 }
 body {
   margin: 0;
-  padding-top: 78px;
+  padding-top: 5.4em;
   background: #f2f2f2;
   background: radial-gradient(#f2f2f2, #eee);
   font-size: 14px;
@@ -18,7 +19,6 @@ section {
   position: relative;
   max-width: 960px;
   margin: 0 auto;
-  padding: 1em;
 }
 .main {
   margin: 0 auto;
@@ -35,7 +35,7 @@ section.active {
   display: block;
 }
 header {
-  height: 78px;
+  height: 5.4em;
   position: fixed;
   z-index: 1;
   padding: 1em 1em;
@@ -48,7 +48,7 @@ header {
   border-top: 0;
 }
 header h1 {
-  margin: 0;
+  margin: 3px;
 }
 header nav ul {
   margin: 0;
@@ -103,6 +103,7 @@ h3 a {
 h2 {
   color: #333;
   color: rgba(0,0,0,0.5);
+  padding-left: 1em;
 }
 h3 {
   margin-top: 0;
@@ -121,7 +122,6 @@ h3 {
   padding-left: 42%;
   background: #fff;
   text-align: left;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   border-bottom: 1px solid #ffd4bd;
   height: 3.4em;
   -webkit-transition: all 0.2s;
@@ -133,6 +133,9 @@ h3 {
 .repositories article:nth-child(odd) {
   background: #fff0e8;
 }
+.repositories article:nth-child(1) {
+  border-top: 1px solid #ffd4bd;
+}
 .repositories.large article:hover {
   height: 12em;
 }
@@ -141,7 +144,7 @@ h3 {
   left: 0.4em;
   top: 0.4em;
   margin: 0;
-  padding: 0.2em 0.5em;
+  padding: 0 0.5em;
   font-size: 1.5em;
 }
 .technologies {
@@ -201,7 +204,7 @@ progress {
   height: 6px;
   padding: 0;
   margin: 0;
-  margin-top: 6px;
+  margin-top: 10px;
   margin-bottom: 10px;
   border: 0;
   border-radius: 3px;
@@ -236,15 +239,14 @@ section.faces a {
   padding: 20px;
   list-style: none;
 }
-.faces-list > li {
+.faces-list li {
   display: inline-block;
   vertical-align: top;
   width: 33.333333333333336%;
-  height: 144px;
   margin-bottom: 20px;
   text-align: center;
 }
-.faces-list > li .picture {
+.faces-list li .picture {
   background: #fff;
   width: 120px;
   height: 120px;
@@ -254,32 +256,11 @@ section.faces a {
   margin: auto;
   margin-bottom: 20px;
 }
-.faces-list > li .picture img {
+.faces-list li .picture img {
   max-width: 120px;
 }
-.faces-list > li .name {
-  font-size: 1.4em;
+.faces-list li .name {
   text-decoration: none;
-}
-.project-list article {
-  background: #fff;
-  text-align: left;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-  border-radius: 2px;
-}
-.preview {
-  min-height: 75px;
-  background: #f2f2f2;
-}
-@media (max-width: 1300px) {
-  .fourth-block {
-    width: 20%;
-  }
-}
-@media (max-width: 1024px) {
-  .fourth-block {
-    width: 25%;
-  }
 }
 @media (max-width: 1000px) {
   .fourth-block {
@@ -287,12 +268,52 @@ section.faces a {
   }
 }
 @media (max-width: 800px) {
-  .fourth-block {
-    width: 50%;
+  body {
+    padding-top: 7em;
   }
-}
-@media (max-width: 600px) {
-  .fourth-block {
+  header {
+    height: 7em;
+  }
+  header h1 {
+    text-align: center;
+  }
+  .repositories article {
+    padding: 1em;
+  }
+  .repositories article h3 {
+    position: static;
+    margin-top: -0.2em;
+    maring-bottom: 1em;
+  }
+  .repositories article:hover {
+    height: 9em;
+  }
+  .repositories article.large:hover {
+    height: 11em;
+  }
+  header nav {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -1px;
+  }
+  header nav ul {
+    position: static;
+    text-align: center;
+  }
+  header nav ul li {
+    display: inline-block;
+  }
+  header nav ul li a {
+    background: none;
+    border-bottom: 0;
+    border-radius: 3px 3px 0 0;
+  }
+  header nav ul li a.active {
+    background: none;
+  }
+  .faces-list li {
     width: 100%;
+    margin-bottom: 2em;
   }
 }
