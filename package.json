@@ -8,7 +8,7 @@
   "homepage": "http://dddware.github.io",
   "devDependencies": {
     "markdown-extra": "~0.1.0",
-    "gulp": "~3.5.0",
+    "gulp": "~3.8.0",
     "gulp-load-tasks": "~0.1.1",
     "gulp-jade": "~0.4.0",
     "markdown": "~0.5.0",
