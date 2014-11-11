@@ -1,6 +1,6 @@
 <!--
 name: 'missingno / lo.st'
-tools: ['MEAN', 'Google Maps']
+tools: ['MEAN', 'OpenStreetMaps']
 completeness: 0
 -->
 
