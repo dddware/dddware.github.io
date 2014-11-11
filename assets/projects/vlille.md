@@ -1,6 +1,6 @@
 <!--
 name: 'vlille'
-tools: ['React', 'OpenStreetMaps']
+tools: ['React', 'Leaflet']
 completeness: 30
 -->
 
