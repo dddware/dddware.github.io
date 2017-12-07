@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    tasks = require('gulp-load-tasks')(),
+    tasks = require('gulp-load-plugins')(),
     Promise = require('promise'),
     rp = require('request-promise'),
     fs = require('fs'),

@@ -8,25 +8,25 @@ npm install
 
 ## GitHub auth
 
-Create a `lib/auth.js` file as follows :
+Create a `lib/auth.js` file as follows:
 
 ```javascript
 module.exports = {
   user: 'username',
   pass: 'password'
-}
+};
 ```
 
-You will then be able to perform more than 60 requests per hour !
+You will then be able to perform more than 60 requests per hour!
 
 ## Build
 
 ```
-gulp
+npm start
 ```
 
 ## Publish
 
 ```
-git push
+git commit && git push
 ```
