@@ -4,4 +4,4 @@ tools: ['MEAN', 'Leaflet']
 completeness: 0
 -->
 
-Lost and found geolocalized app.
+Interpersonal geolocation app.
