@@ -145,7 +145,7 @@ var cfg = {
 gulp.task('github', function () {
     var promises = [getMembers(), getRepos(), getProjects()];
 
-    Promise.all(promises).then(function (results) {
+    return Promise.all(promises).then(function (results) {
         var locals = {
             members: results[0],
             repos: results[1],
@@ -162,7 +162,7 @@ gulp.task('github', function () {
 });
 
 gulp.task('styles', function () {
-    gulp.src('./assets/stylesheets/style.styl')
+    return gulp.src('./assets/stylesheets/style.styl')
         .pipe(tasks.stylus())
         .pipe(gulp.dest('./assets/stylesheets'));
 });
@@ -171,4 +171,4 @@ gulp.task('watch', function() {
     gulp.watch(['./assets/**/*'], ['github', 'styles']);
 });
 
-gulp.task('default', ['github', 'styles']);
+gulp.task('default', gulp.series('github', 'styles'));
